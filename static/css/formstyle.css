@@ -102,7 +102,7 @@ fieldset {
   resize: none;
 }
 
-#contact button[type="submit"] {
+#contact  button[type="submit"] {
   cursor: pointer;
   width: 100%;
   border: none;
@@ -112,6 +112,18 @@ fieldset {
   padding: 10px;
   font-size: 15px;
 }
+
+#contact  a {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: rgb(206, 4, 21)1)6, 84);
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
 
 #contact button[type="submit"]:hover {
   background: #43A047;

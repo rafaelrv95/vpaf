@@ -10,13 +10,28 @@
 
 {% block content %}
 
-<form  method="post">
-{% csrf_token %}
-<h3>Desea elimimar el pedido de {{object.responsable}}</h3>
-<button class="btn btn-primary" type="submit">Sí</button>
-<a class="btn btn-danger" href="{% url 'pedidos:pedidos_listar' %}">No</a>
 
-</form>
+<div class="container">  
+        <form id="contact" action="" method="post">
+                {% csrf_token %}
+          
+          
+          
+          <h3><b>¿Desea elimimar el registro de {{object.responsable}}?</b></h3>
+        <button class="btn btn-primary" type="submit">Sí, Eliminar</button>
+         <a class="btn btn-danger" href="{% url 'pedidos:pedidos_listar' %}">Volver</a>
+
+              
+          
+              
+          
+        
+          
+
+ 
+        </form>
+      </div>
+
     
 {% endblock content %}
  
