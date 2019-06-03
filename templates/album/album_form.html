@@ -9,14 +9,34 @@
 
 
 {% block content %}
+<div class="container">  
+        <form id="contact" action="" method="post">
+                {% csrf_token %}
+          <h3>Album</h3>
+          
+          
+          <fieldset>
+                <input placeholder="Fundacion" type="text" tabindex="1" value="{{album.fundacion}}" required autofocus name="fundacion">
+              </fieldset>
+              <fieldset>
+                    <input placeholder="Cantidad" type="number" tabindex="1" value="{{album.cantidad}}" required autofocus name="cantidad">
+              </fieldset>
+            
+              
+          
+              
+          
+        
+          
 
-<form  method="post">
-        {% csrf_token %}
 
-{{form.as_p}}
-<button type="submit">Guardar</button>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Registrar</button>
+          </fieldset>
+          
+        </form>
+      </div>
 
-</form>
     
 {% endblock content %}
     
