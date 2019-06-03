@@ -23,6 +23,17 @@ def album_view(request):
     return render(request, 'album/album_form.html', {'form':form})
 
 def album_list(request):
-    album = Album.objects.all()
+    album = Album.objects.all().order_by('id')
     contexto = {'album':album}
     return render(request, 'album/album_list.html', contexto)
+
+def album_edit(request, id_album):
+    album = Album.objects.get(id=id_album)
+    if request.method == 'GET':
+        form = AlbumForm(instance=album)
+    else:
+        form = AlbumForm(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+        return redirect('album:album_listar')
+    return render(request, 'album/album_form.html',{'form':form})
