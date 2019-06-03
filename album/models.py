@@ -8,3 +8,7 @@ class Album(models.Model):
 
     fundacion = models.CharField(max_length=50)
     cantidad = models.IntegerField()
+    
+    
+    def __unicode__(self):
+        return '{}'.format(self.fundacion)

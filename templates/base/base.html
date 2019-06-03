@@ -1,32 +1,89 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    
-    {% block extrahead %}
-        
-    {% endblock extrahead %}
-        
-    <title>{% block title %}Document {% endblock %} </title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  
+  {% block title %}
+      <title>ValorArte</title>
+  {% endblock title %}
+      
+  <!-- Bootstrap core CSS -->
+   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <!-- Custom styles for this template -->
+  <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
+
 </head>
+
 <body>
-    
-    {% block header %}
-    {% include 'base/header.html' %}
-    {% endblock %}
 
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    
+    {% block navbar %}
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Start Bootstrap </div>
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action bg-light">Pedidos</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">listar Pedidos</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Album</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Listar Album</a>
+        </div>
+      </div>
+          
+    {% endblock navbar %}
+        
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    
     {% block content %}
-    <h5>contenido block base</h5>
-    {% endblock %}
+    <div id="page-content-wrapper">
 
-    {% block footer %}
-    <h5>footer block base</h5>
-    {% endblock %}
+      
+
+        <div class="container-fluid">
+          <h1 class="mt-4">Simple Sidebar</h1>
+          <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+          <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+        </div>
+      </div>
+       
+        
+    {% endblock content %}
+        
+    <!-- /#page-content-wrapper -->
 
     
-    {% block extrajs %}
+    {% block footer %}
         
-    {% endblock extrajs %}
+    {% endblock footer %}
         
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
 </body>
+
 </html>

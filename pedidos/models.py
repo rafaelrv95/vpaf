@@ -14,3 +14,5 @@ class Pedido(models.Model):
     contacto = models.CharField(max_length=150)
     observaciones = models.CharField(max_length=250)
     
+    def __unicode__(self):
+        return '{}'.format(self.responsable)
