@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views.generic import ListView, CreateView, FormView
+from django.views.generic import ListView, CreateView, FormView, UpdateView, DeleteView
 
 from django.core.urlresolvers import reverse_lazy
 
@@ -56,4 +56,15 @@ class AlbumCreate(CreateView):
     model = Album
     form_class = AlbumForm
     template_name = 'album/album_form.html'
+    success_url = reverse_lazy('album:album_listar')
+
+class AlbumUpdate(UpdateView):
+    model = Album
+    form_class = AlbumForm
+    template_name = 'album/album_form.html'
+    success_url = reverse_lazy('album:album_listar')
+
+class AlbumDelete(DeleteView):
+    model = Album
+    template_name = 'album/album_delete.html'
     success_url = reverse_lazy('album:album_listar')
