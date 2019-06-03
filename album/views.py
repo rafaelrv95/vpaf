@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.views.generic import ListView, CreateView, FormView
+
+from django.core.urlresolvers import reverse_lazy
 
 from album.forms import AlbumForm
 from album.models import Album
@@ -17,7 +20,7 @@ def album_view(request):
         form = AlbumForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('album:index')
+        return redirect('album:album_listar')
     else:
         form = AlbumForm()
     return render(request, 'album/album_form.html', {'form':form})
@@ -45,4 +48,12 @@ def album_delete(request, id_album):
         return redirect('album:album_listar')
     return render(request, 'album/album_delete.html',{'album':album})
 
+class AlbumList(ListView):
+    model = Album
+    template_name = 'album/album_list.html'
 
+class AlbumCreate(CreateView):
+    model = Album
+    form_class = AlbumForm
+    template_name = 'album/album_form.html'
+    success_url = reverse_lazy('album:album_listar')
