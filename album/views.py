@@ -37,3 +37,12 @@ def album_edit(request, id_album):
             form.save()
         return redirect('album:album_listar')
     return render(request, 'album/album_form.html',{'form':form})
+
+def album_delete(request, id_album):
+    album = Album.objects.get(id=id_album)
+    if request.method == 'POST':
+        album.delete()
+        return redirect('album:album_listar')
+    return render(request, 'album/album_delete.html',{'album':album})
+
+

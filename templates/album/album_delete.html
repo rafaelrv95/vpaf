@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}
+    Eliminar Album
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+<form  method="post">
+{% csrf_token %}
+<h3>Desea elimimar el registro de {{album.fundacion}}</h3>
+<button class="btn btn-primary" type="submit">Sí</button>
+<a class="btn btn-danger" href="{% url 'album:album_listar' %}">No</a>
+
+</form>
+    
+{% endblock content %}
+ 

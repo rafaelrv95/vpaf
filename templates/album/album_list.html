@@ -26,8 +26,9 @@
                 <td>{{albums.fundacion}}</td>
                 <td>{{albums.cantidad}}</td>
                 <td>
-                    <a href="{%url 'album:album_editar' albums.id%}">Editar</a>
-            
+                    <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
+                    <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
+             
                 </td> 
             </tr>
             {% endfor %}
