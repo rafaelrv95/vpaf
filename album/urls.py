@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from album.views import index, album_view, album_list,album_edit, album_delete, AlbumList, AlbumCreate, AlbumUpdate, AlbumDelete
+from album.views import index, AlbumList, AlbumCreate, AlbumUpdate, AlbumDelete
 
 urlpatterns = [
     url(r'^$',index, name='index'),

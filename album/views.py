@@ -14,7 +14,7 @@ from album.models import Album
 def index(request):
     return render(request, 'album/index.html')
 
-
+'''
 def album_view(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST)
@@ -47,7 +47,7 @@ def album_delete(request, id_album):
         album.delete()
         return redirect('album:album_listar')
     return render(request, 'album/album_delete.html',{'album':album})
-
+'''
 class AlbumList(ListView):
     model = Album
     template_name = 'album/album_list.html'
