@@ -32,6 +32,7 @@ body {
 #contact input[type="email"],
 #contact input[type="password"],
 #contact input[type="number"],
+#contact input[type="date"],
 #contact input[type="tel"],
 #contact input[type="url"],
 #contact textarea,
@@ -72,6 +73,7 @@ fieldset {
 #contact input[type="email"],
 #contact input[type="password"],
 #contact input[type="number"],
+#contact input[type="date"],
 #contact input[type="tel"],
 #contact input[type="url"],
 #contact textarea {
@@ -84,6 +86,7 @@ fieldset {
 
 #contact input[type="text"]:hover,
 #contact input[type="email"]:hover,
+#contact input[type="date"]:hover,
 #contact input[type="tel"]:hover,
 #contact input[type="url"]:hover,
 #contact textarea:hover {

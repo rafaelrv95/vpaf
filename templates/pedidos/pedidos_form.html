@@ -10,12 +10,50 @@
 
 {% block content %}
 
-<form  method="post">
-{% csrf_token %}
-{{form.as_p}}
-<button type="submit">Guardar</button>
+<div class="container">  
+        <form id="contact" action="" method="post">
+                {% csrf_token %}
+          <h3>Pedido</h3>
+          
+          
+          <fieldset>
+                <input placeholder="Responsable" type="text" tabindex="1" value="{{pedido.responsable}}" required autofocus name="responsable">
+              </fieldset>
 
-</form>
+              <fieldset>
+                    <input placeholder="Destino" type="text" tabindex="1"  value="{{pedido.destino}}" required autofocus name="destino">
+              </fieldset>
+
+              <fieldset>
+                    <input placeholder="Cantidad" type="number" tabindex="1"  value="{{pedido.cantidad}}" required autofocus name="cantidad">
+              </fieldset>
+
+              <fieldset>
+                    <input placeholder="Fecha" type="date" tabindex="1"  value="{{pedido.fecha|date:'Y-m-d'}}" required autofocus name="fecha">
+              </fieldset>
+
+              <fieldset>
+                    <input placeholder="Contacto" type="number" tabindex="1"  value="{{pedido.contacto}}" required autofocus name="contacto">
+              </fieldset>
+
+              <fieldset>
+                    <input placeholder="Observaciones" type="text" tabindex="1"  value="{{pedido.observaciones}}" required autofocus name="observaciones">
+              </fieldset>
+            
+              
+          
+              
+          
+        
+          
+
+
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Registrar</button>
+          </fieldset>
+          
+        </form>
+      </div>
     
 {% endblock content %}
     
