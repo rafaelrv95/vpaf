@@ -1,21 +1,57 @@
 {% extends 'base/base.html' %}
-
+{% load staticfiles %}
 
 {% block title %}
     Registrar Usuario
 {% endblock title %}
 
+ 
 
+   
+    
 
 
 {% block content %}
 
-<form  method="post">
-{% csrf_token %}
-{{form.as_p}}
-<button type="submit">Guardar</button>
 
-</form>
-    
+
+<div class="container">  
+        <form id="contact" action="" method="post">
+                {% csrf_token %}
+          <h3>Registrar nuevo usuario</h3>
+          
+          <fieldset>
+            <input placeholder="Nombre" type="text" tabindex="1" required autofocus name="first_name">
+          </fieldset>
+          <fieldset>
+                <input placeholder="Apellido" type="text" tabindex="1" required autofocus name="last_name">
+          </fieldset>
+        
+          <fieldset>
+                <input placeholder="Nombre de Ususario" type="text" tabindex="1" required autofocus name="username">
+         </fieldset>
+              
+
+          <fieldset>
+            <input placeholder="Correo" type="email" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+                <input placeholder="Contraseña" type="password" tabindex="1" required autofocus name="password1">
+          </fieldset>
+              
+          
+          <fieldset>
+                <input placeholder="Confirmar Contraseña" type="password" tabindex="1" required autofocus name="password2">
+          </fieldset>
+          
+
+
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Registrar</button>
+          </fieldset>
+          
+        </form>
+      </div>
+
 {% endblock content %}
     
