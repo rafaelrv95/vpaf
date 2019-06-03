@@ -20,5 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^album/', include('album.urls', namespace="album")),
     url(r'^pedidos/', include('pedidos.urls',namespace="pedidos")),
+    url(r'^usuarios/', include('usuarios.urls',namespace="usuarios")),
+
 
 ]
