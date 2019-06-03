@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from album.forms import AlbumForm
+from album.models import Album
 # Create your views here.
 
 def index(request):
@@ -20,3 +21,8 @@ def album_view(request):
     else:
         form = AlbumForm()
     return render(request, 'album/album_form.html', {'form':form})
+
+def album_list(request):
+    album = Album.objects.all()
+    contexto = {'album':album}
+    return render(request, 'album/album_list.html', contexto)

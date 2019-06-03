@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Fundación</td>
+                <td>Cantidad</td>
+            </tr>
+        </thead>
+        
+                    
+        <tbody>
+            {% if album %}
+            
+            {% for albums in album %}
+            <tr>
+                <td>{{albums.id}}</td>
+                <td>{{albums.fundacion}}</td>
+                <td>{{albums.cantidad}}</td>
+
+            </tr>
+            {% endfor %}
+            {% else %}
+            <h1>no existen registros</h1>
+                
+        {% endif %}
+
+           
+        </tbody>
+
+    </table>
+{% endblock content %}
+    
