@@ -2,9 +2,7 @@
 
 
 
-{% block extrastyle %}
-    
-{% endblock extrastyle %}
+
     
 
 {% block content %}
@@ -14,6 +12,7 @@
                 <td>id</td>
                 <td>Fundación</td>
                 <td>Cantidad</td>
+                <td>Acciones</td>
             </tr>
         </thead>
         
@@ -26,7 +25,10 @@
                 <td>{{albums.id}}</td>
                 <td>{{albums.fundacion}}</td>
                 <td>{{albums.cantidad}}</td>
-
+                <td>
+                    <a href="{%url 'album:album_editar' albums.id%}">Editar</a>
+            
+                </td> 
             </tr>
             {% endfor %}
             {% else %}
