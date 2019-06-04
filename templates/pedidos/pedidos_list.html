@@ -3,6 +3,48 @@
 
 
 
+{% block navbar %}
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading"> ValorArte </div>
+        <div class="list-group list-group-flush">
+            <a href="{% url 'pedidos:pedidos_crear' %}" class="btn list-group-item list-group-item-action bg-light">Pedidos</a>
+          
+          <button href="{% url 'pedidos:pedidos_listar' %}" class="btn btn-primary">
+            Listar Pedidos
+          </button>
+          <a href="{% url 'album:album_crear' %}" class="btn list-group-item list-group-item-action bg-light">Album</a>
+          <a href="{% url 'album:album_listar' %}" class="btn list-group-item list-group-item-action bg-light">Listar Album</a>
+          <a href="{% url 'usuarios:registrar' %}" class="btn list-group-item list-group-item-action bg-light">Crear Usuario</a>
+        
+        
+        </div>
+      </div>
+
+
+
+
+      <div id="page-content-wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="btn nav-link" href="{% url 'logout' %}">Cerrar Sesión <span class="sr-only">(current)</span></a>
+              
+            </ul>
+          </div>
+        </nav>
+  
+          
+    {% endblock navbar %}
+
+
+
     
 
 {% block content %}
