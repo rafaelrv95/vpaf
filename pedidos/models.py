@@ -12,6 +12,7 @@ class Pedido(models.Model):
     cantidad = models.IntegerField()
     fecha = models.DateField()
     contacto = models.CharField(max_length=150)
+    estado = models.CharField(max_length=250)
     observaciones = models.CharField(max_length=250)
     
     def __unicode__(self):

@@ -12,6 +12,7 @@ class PedidoForm(forms.ModelForm):
             'cantidad',
             'fecha',
             'contacto',
+            'estado',
             'observaciones',
 
         ]
@@ -22,6 +23,7 @@ class PedidoForm(forms.ModelForm):
             'cantidad':'Cantidad',
             'fecha':'Fecha',
             'contacto':'Contacto',
+            'estado':'Estado',
             'observaciones':'Observaciones',
         }
         widgets = {
@@ -30,6 +32,7 @@ class PedidoForm(forms.ModelForm):
             'cantidad': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha': forms.TextInput(attrs={'class': 'form-control'}),
             'contacto': forms.TextInput(attrs={'class': 'form-control'}),
+            'estado': forms.TextInput(attrs={'class': 'form-control'}),
             'observaciones': forms.TextInput(attrs={'class': 'form-control'}),
             
         }

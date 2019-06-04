@@ -20,6 +20,7 @@
                         <th class="column3">Fecha</th>
                         <th class="column3">Contacto</th>
                         <th class="column3">Observaciones</th>
+                        <th class="column6">Estado</th>
                         
                         <th class="column6">Acciones</th>
                       
@@ -30,19 +31,63 @@
                         {% for pedido in object_list %}
                         <tr>
 
-                <td class="column1">{{pedido.id}}</td>
-                <td class="column2">{{pedido.responsable}}</td>
-                <td class="column2">{{pedido.destino}}</td>
-                <td class="column2">{{pedido.cantidad}}</td>
-                <td class="column2">{{pedido.fecha}}</td>
-                <td class="column2">{{pedido.contacto}}</td>
-                <td class="column2">{{pedido.observaciones}}</td>
+                          
+                          {% if pedido.estado == "entregado" %}
+                          <td class="column1" bgcolor="#93FB72">{{pedido.id}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.responsable}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.destino}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.cantidad}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.fecha}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.contacto}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.observaciones}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.estado}}</td>
+                          
+                          <td class="column6" bgcolor="#93FB72">
+                              <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
+                              <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
+                          </td>
+
+                          {% elif pedido.estado == "pendiente"%}
+                          <td class="column1" bgcolor="#D3EC2E">{{pedido.id}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.responsable}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.destino}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.cantidad}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.fecha}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.contacto}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.observaciones}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.estado}}</td>
+                          
+                          <td class="column6" bgcolor="#D3EC2E">
+                              <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
+                              <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
+                          </td>
+                          {% elif pedido.estado == "en espera"%}
+                          <td class="column1" >{{pedido.id}}</td>
+                          <td class="column2" >{{pedido.responsable}}</td>
+                          <td class="column2" >{{pedido.destino}}</td>
+                          <td class="column2" >{{pedido.cantidad}}</td>
+                          <td class="column2" >{{pedido.fecha}}</td>
+                          <td class="column2" >{{pedido.contacto}}</td>
+                          <td class="column2" >{{pedido.observaciones}}</td>
+                          <td class="column2" >{{pedido.estado}}</td>
+                          
+                          <td class="column6">
+                              <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
+                              <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
+                          </td>
+
+
+
+                          
+                
+                            
+                          {% endif %}
+                            
+
+                
 
                             
-                            <td class="column6">
-                                    <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
-                                    <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
-                            </td> 
+                            
                         </tr>
                         {% endfor %}
                         {% else %}
