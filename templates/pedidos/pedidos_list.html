@@ -6,50 +6,59 @@
     
 
 {% block content %}
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td>id</td>
-                <td>Responsable</td>
-                <td>Destino</td>
-                <td>Cantidad</td>
-                <td>Fecha</td>
-                <td>Contacto</td>
-                <td>Observaciones</td>
-                <td>Acciones</td>
-            </tr>
-        </thead>
-        
-                    
-        <tbody>
-            {% if object_list %}
+<div class="limiter">
+        <div class="container-table100">
+          <div class="wrap-table100">
+            <div class="table100">
+              <table>
+                <thead>
+                  <tr class="table100-head">
+                        <th class="column1">id</th>
+                        <th class="column3">Responsable</th>
+                        <th class="column3">Destino</th>
+                        <th class="column3">Cantidad</th>
+                        <th class="column3">Fecha</th>
+                        <th class="column3">Contacto</th>
+                        <th class="column3">Observaciones</th>
+                        
+                        <th class="column6">Acciones</th>
+                      
+                </thead>
+                <tbody>
+                        {% if object_list %}
             
-            {% for pedido in object_list %}
-            <tr>
-                <td>{{pedido.id}}</td>
-                <td>{{pedido.responsable}}</td>
-                <td>{{pedido.destino}}</td>
-                <td>{{pedido.cantidad}}</td>
-                <td>{{pedido.fecha}}</td>
-                <td>{{pedido.contacto}}</td>
-                <td>{{pedido.observaciones}}</td>
+                        {% for pedido in object_list %}
+                        <tr>
+
+                <td class="column1">{{pedido.id}}</td>
+                <td class="column2">{{pedido.responsable}}</td>
+                <td class="column2">{{pedido.destino}}</td>
+                <td class="column2">{{pedido.cantidad}}</td>
+                <td class="column2">{{pedido.fecha}}</td>
+                <td class="column2">{{pedido.contacto}}</td>
+                <td class="column2">{{pedido.observaciones}}</td>
+
+                            
+                            <td class="column6">
+                                    <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
+                                    <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
+                            </td> 
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <h1>no existen registros</h1>
+                            
+                    {% endif %}
+            
 
 
-                <td>
-                    <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
-                    <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
-             
-                </td> 
-            </tr>
-            {% endfor %}
-            {% else %}
-            <h1>no existen registros</h1>
-                
-        {% endif %}
+                    
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
 
-           
-        </tbody>
-
-    </table>
 {% endblock content %}
     

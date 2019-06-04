@@ -6,40 +6,52 @@
     
 
 {% block content %}
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <td>id</td>
-                <td>Fundación</td>
-                <td>Cantidad</td>
-                <td>Acciones</td>
-            </tr>
-        </thead>
-        
-                    
-        <tbody>
-            {% if object_list %}
+    
+
+<div class="limiter">
+        <div class="container-table100">
+          <div class="wrap-table100">
+            <div class="table100">
+              <table>
+                <thead>
+                  <tr class="table100-head">
+                        <th class="column1">id</th>
+                    <th class="column2">Fundacion</th>
+                    <th class="column3">Cantidad</th>
+                    <th class="column6">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody class="falbum">
+                        {% if object_list %}
             
-            {% for albums in object_list %}
-            <tr>
-                <td>{{albums.id}}</td>
-                <td>{{albums.fundacion}}</td>
-                <td>{{albums.cantidad}}</td>
-                <td>
-                    <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
-                    <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
-             
-                </td> 
-            </tr>
-            {% endfor %}
-            {% else %}
-            <h1>no existen registros</h1>
-                
-        {% endif %}
+                        {% for albums in object_list %}
+                        <tr>
+                            <td class="column1">{{albums.id}}</td>
+                            <td class="column2">{{albums.fundacion}}</td>
+                            <td class="column3">{{albums.cantidad}}</td>
+                            <td class="column6">
+                                <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
+                                <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
+                         
+                            </td> 
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <h1>no existen registros</h1>
+                            
+                    {% endif %}
+            
 
-           
-        </tbody>
 
-    </table>
+                    
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
 {% endblock content %}
     
