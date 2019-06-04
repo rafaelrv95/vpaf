@@ -53,6 +53,23 @@ class PedidoList(ListView):
     model = Pedido
     template_name = 'pedidos/pedidos_list.html'
 
+     
+    def get_context_data(self, **kwargs):
+        context =super(PedidoList, self).get_context_data(**kwargs)
+        cantidad = Pedido.objects.all()
+        
+        ###### total #############
+        context['cantidad_total']= cantidad
+
+        suma=0
+        for i in cantidad:
+            suma = suma+int(i.cantidad)
+        context['cantidad_total']= suma
+  ###################### fin total#################
+
+        return context
+    
+
 class PedidoCreate(CreateView):
     model = Pedido
     form_class = PedidoForm
