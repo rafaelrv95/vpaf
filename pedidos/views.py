@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse_lazy
 
 from pedidos.forms import PedidoForm
 from pedidos.models import Pedido
+from album.models import Album
 # Create your views here.
 
 def index(request):
@@ -63,9 +64,25 @@ class PedidoList(ListView):
 
         suma=0
         for i in cantidad:
-            suma = suma+int(i.cantidad)
+            if i.estado =="entregado":
+                suma = suma+int(i.cantidad)
         context['cantidad_total']= suma
   ###################### fin total#################
+
+
+  ############# album ##################
+        
+        cantalbum= Album.objects.all()
+        context['cantidad_album']=cantalbum
+        sumalbum = 0
+        for i in cantalbum:
+            sumalbum = sumalbum+int(i.cantidad)
+        context['cantidad_album']=sumalbum - suma
+
+
+
+
+  ########################################
 
         return context
     

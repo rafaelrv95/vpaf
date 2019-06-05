@@ -138,7 +138,14 @@
                     {% endif %}
                     
                     
-                    <h1 class="btn btn-success">Cantidad Total {{cantidad_total}}</h1>  
+                    {% if cantidad_album > 0 %}
+                    <h1 class="btn btn-success">Cantidad Total De Álbumes {{cantidad_album}}</h1>  
+                    {% else %}
+                    <h1 class="btn btn-danger">Cantidad Total De Álbumes {{cantidad_album}}</h1>  
+                    
+
+                    {% endif %}
+                      
                     
                       
                     
