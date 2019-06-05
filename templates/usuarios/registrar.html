@@ -80,12 +80,12 @@
             <input placeholder="Correo" type="email" tabindex="2" required>
           </fieldset>
           <fieldset>
-                <input placeholder="Contraseña" type="password" tabindex="1" required autofocus name="password1">
+                <input placeholder="Contraseña" type="password" tabindex="1" pattern=".{8,}" title="Debe contener 8 o mas caracteres" required autofocus name="password1">
           </fieldset>
               
           
           <fieldset>
-                <input placeholder="Confirmar Contraseña" type="password" tabindex="1" required autofocus name="password2">
+                <input placeholder="Confirmar Contraseña" type="password" tabindex="1" pattern=".{8,}" title="Debe contener 8 o mas caracteres" required autofocus name="password2">
           </fieldset>
           
 
@@ -94,8 +94,12 @@
             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Registrar</button>
           </fieldset>
           
+          
         </form>
       </div>
+
+
+      
 
 {% endblock content %}
     
