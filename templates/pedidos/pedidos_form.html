@@ -17,31 +17,43 @@
           
           
           <fieldset>
-                <input placeholder="Responsable" type="text" tabindex="1" value="{{pedido.responsable}}" required autofocus name="responsable">
+                <legend style="font-size:17px"> Responsable </legend>
+                <input placeholder="" type="text" tabindex="1" value="{{pedido.responsable}}" required autofocus name="responsable">
               </fieldset>
 
               <fieldset>
-                    <input placeholder="Destino" type="text" tabindex="1"  value="{{pedido.destino}}" required autofocus name="destino">
+                  <legend style="font-size:17px"> Destino </legend>
+                
+                  <input placeholder="" type="text" tabindex="1"  value="{{pedido.destino}}" required autofocus name="destino">
               </fieldset>
 
               <fieldset>
-                    <input placeholder="Cantidad" type="number" tabindex="1"  value="{{pedido.cantidad}}" required autofocus name="cantidad">
+                  <legend style="font-size:17px"> Cantidad </legend>
+                
+                    <input placeholder="" type="number" tabindex="1"  value="{{pedido.cantidad}}" required autofocus name="cantidad">
               </fieldset>
 
               <fieldset>
+                        <legend style="font-size:17px"> Fecha </legend>
+                    
                     <input placeholder="Fecha" type="date" tabindex="1"  value="{{pedido.fecha|date:'Y-m-d'}}" required autofocus name="fecha">
               </fieldset>
 
               <fieldset>
-                    <input placeholder="Contacto" type="number" tabindex="1"  value="{{pedido.contacto}}" required autofocus name="contacto">
+                  <legend style="font-size:17px"> Contacto (Número) </legend>
+                
+                    <input placeholder="" type="number" tabindex="1"  value="{{pedido.contacto}}" required autofocus name="contacto">
               </fieldset>
 
               <fieldset>
-                    <input placeholder="Observaciones" type="text" tabindex="1"  value="{{pedido.observaciones}}" required autofocus name="observaciones">
+                        <legend style="font-size:17px"> Observaciones </legend>
+                
+                    <input placeholder="" type="text" tabindex="1"  value="{{pedido.observaciones}}" required autofocus name="observaciones">
               </fieldset>
             
-              
-              <select name="estado">
+              <legend style="font-size:17px"> Estado </legend>
+                
+              <select class="browser-default custom-select" required autofocus name="estado">
                         <option value="{{pedido.estado}}">{{pedido.estado}}</option>
                   <option value="en espera">En espera</option>
                   <option value="entregado">Entregado</option>
@@ -50,7 +62,8 @@
               
           
         
-          
+          <br>
+          <br>
 
 
           <fieldset>
