@@ -22,7 +22,8 @@
            
          {% endblock extrastyle %}
 
-      
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
   <!-- Bootstrap core CSS -->
    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
    <!-- Custom styles for this template -->
@@ -99,6 +100,14 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
+  
+  
+
+{% block scripts %}
+  
+{% endblock scripts %}
+  
+  
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/excel.js' %}"></script>

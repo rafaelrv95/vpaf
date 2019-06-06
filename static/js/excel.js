@@ -1,33 +1,92 @@
-function fnExcelReport()
-{
-    var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
-    var textRange; var j=0;
-    tab = document.getElementById('pedidos'); // id of table
+$nuevatabla = $('.dataTable').clone().addClass('dataT').insertAfter('.dataTable').hide();
+$('.dataT').find("td:nth-child(9)").remove();
+$('.dataT').find("th:nth-child(9)").remove();
 
-    for(j = 0 ; j < tab.rows.length ; j++) 
-    {     
-        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
-        //tab_text=tab_text+"</tr>";
+$('#export').click(function() {
+    var titles = [];
+    var data = [];
+  
+    /*
+     * Get the table headers, this will be CSV headers
+     * The count of headers will be CSV string separator
+     */
+
+    $('.dataT th').each(function() {
+        
+    
+      titles.push($(this).text());
+    });
+  
+    /*
+     * Get the actual data, this will contain all the data, in 1 array
+     */
+    $('.dataT td').each(function() {
+      data.push($(this).text());
+    });
+
+    /*
+     * Convert our data to CSV string
+     */
+    var CSVString = prepCSVRow(titles, titles.length, '');
+    CSVString = prepCSVRow(data, titles.length, CSVString);
+  
+    /*
+     * Make CSV downloadable
+     */
+    var downloadLink = document.createElement("a");
+    var blob = new Blob(["\ufeff", CSVString]);
+    var url = URL.createObjectURL(blob);
+    downloadLink.href = url;
+    downloadLink.download = "data.csv";
+  
+    /*
+     * Actually download CSV
+     */
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+  });
+  
+     /*
+  * Convert data array to CSV string
+  * @param arr {Array} - the actual data
+  * @param columnCount {Number} - the amount to split the data into columns
+  * @param initial {String} - initial string to append to CSV string
+  * return {String} - ready CSV string
+  */
+  function prepCSVRow(arr, columnCount, initial) {
+    
+    var row = ''; // this will hold data
+    var delimeter = ','; // data slice separator, in excel it's `;`, in usual CSv it's `,`
+    var newLine = '\r\n'; // newline separator for CSV row
+  
+    /*
+     * Convert [1,2,3,4] into [[1,2], [3,4]] while count is 2
+     * @param _arr {Array} - the actual array to split
+     * @param _count {Number} - the amount to split
+     * return {Array} - splitted array
+     */
+    function splitArray(_arr, _count) {
+      var splitted = [];
+      var result = [];
+      _arr.forEach(function(item, idx) {
+        if ((idx + 1) % _count === 0) {
+          splitted.push(item);
+          result.push(splitted);
+          splitted = [];
+        } else {
+          splitted.push(item);
+        }
+      });
+      return result;
     }
-
-    tab_text=tab_text+"</table>";
-    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
-    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
-    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
-
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE "); 
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-    {
-        txtArea1.document.open("txt/html","replace");
-        txtArea1.document.write(tab_text);
-        txtArea1.document.close();
-        txtArea1.focus(); 
-        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
-    }  
-    else                 //other browser not tested on IE 11
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
-
-    return (sa);
-}
+    var plainArr = splitArray(arr, columnCount);
+    plainArr.forEach(function(arrItem) {
+        arrItem.forEach(function(item, idx) {
+          row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
+        });
+        row += newLine;
+      });
+      return initial + row;
+    }

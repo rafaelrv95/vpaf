@@ -52,7 +52,7 @@
         <div class="container-table100">
           <div class="wrap-table100">
             <div class="table100">
-              <table id="pedidos">
+              <table class="dataTable" id="pedidos">
                 <thead>
                   <tr class="table100-head">
                         <th class="column1">id</th>
@@ -67,7 +67,7 @@
                         <th class="column6">Acciones</th>
                       
                 </thead>
-                <tbody class="pedidos">
+                <tbody class="fpedido">
                         {% if object_list %}
             
                         {% for pedido in object_list %}
@@ -156,8 +156,7 @@
               </table>
               <iframe id="txtArea1" style="display:none"></iframe>
 
-              <button onclick="fnExcelReport()" class="btn btn-warning">Exportar Tabla a excel</button>
-              
+              <button  class="btn btn-warning" id="export">export</button>
 
             </div>
           </div>
@@ -165,4 +164,7 @@
       </div>
 
 {% endblock content %}
+
+
+
     
