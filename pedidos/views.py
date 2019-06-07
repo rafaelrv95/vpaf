@@ -84,6 +84,19 @@ class PedidoList(ListView):
 
   ########################################
 
+
+##### total de pedidos en la tabla ############
+        
+        totaltabla= Pedido.objects.all()
+        context['total_tabla']=totaltabla
+        sumaTabla = 0
+        for i in totaltabla:
+            sumaTabla = sumaTabla+int(i.cantidad)
+        context['total_tabla']=sumaTabla
+
+###########################################################
+
+
         return context
     
 

@@ -68,6 +68,7 @@
                         <th class="column6">Estado</th>
                         
                         <th class="column6">Acciones</th>
+                        
                       
                 </thead>
                 <tbody class="fpedido">
@@ -76,6 +77,11 @@
                         {% for pedido in object_list %}
                         <tr>
 
+                          
+                          
+                          
+                            
+                          
                           
                           {% if pedido.estado == "entregado" %}
                           <td class="column1" bgcolor="#93FB72">{{pedido.id}}</td>
@@ -115,19 +121,26 @@
                           <td class="column2" >{{pedido.contacto}}</td>
                           <td class="column2" >{{pedido.observaciones}}</td>
                           <td class="column2" >{{pedido.estado}}</td>
+                            
                           
+
+                          
+                              
                           <td class="column6">
                               <a class="btn btn-primary" href="{%url 'pedidos:pedidos_editar' pedido.id%}">Editar</a>
                               <a class="btn btn-danger" href="{%url 'pedidos:pedidos_eliminar' pedido.id%}">Eliminar</a>
                           </td>
 
-
+                          
+                                                      
+                          
+                            
 
                           
                 
                             
                           {% endif %}
-                            
+                          
 
                 
 
@@ -135,6 +148,24 @@
                             
                         </tr>
                         {% endfor %}
+
+                        <tr>
+
+                          <td class="column1"  ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" bgcolor="#F64949"><font color="Black">TOTAL</font></td>
+                          <td class="column2" bgcolor="#F64949"><font color="Black">{{total_tabla}}</font></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+
+
+                        </tr>
+                          
+                          
+
+                        
                         {% else %}
                         <h1>no existen registros</h1>
                             
@@ -152,14 +183,19 @@
                     
                       
                     
-
+                   
 
                     
                 </tbody>
-              </table>
-              <iframe id="txtArea1" style="display:none"></iframe>
 
-              <button  class="btn btn-warning" id="export">export</button>
+                
+                
+
+              </table>
+
+              <iframe id="txtArea1" style="display:none"></iframe>
+              <br>
+              <button  class="btn btn-warning" id="export">Descargar CSV de la tabla</button>
 
             </div>
           </div>
