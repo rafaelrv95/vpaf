@@ -153,8 +153,8 @@
 
                           <td class="column1"  ></td>
                           <td class="column2" ></td>
-                          <td class="column2" bgcolor="#F64949"><font color="Black">TOTAL</font></td>
-                          <td class="column2" bgcolor="#F64949"><font color="Black">{{total_tabla}}</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL EN PEDIDOS</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{total_tabla}}</font></td>
                           <td class="column2" ></td>
                           <td class="column2" ></td>
                           <td class="column2" ></td>
@@ -163,6 +163,35 @@
 
                         </tr>
                           
+                          
+                        <tr>
+
+                          <td class="column1"  ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL ALBUM REGISTRADOS</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{album_total}}</font></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+
+
+                        </tr>
+                          
+
+                        <tr>
+
+                          <td class="column1"  ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL DISPONIBLE</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{cantidad_album}}</font></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+                          <td class="column2" ></td>
+
+
+                        </tr>
                           
 
                         
@@ -173,9 +202,9 @@
                     
                     
                     {% if cantidad_album > 0 %}
-                    <h1 class="btn btn-success">Cantidad Total De Álbumes {{cantidad_album}}</h1>  
+                    <h1 class="btn btn-success">Cantidad Total De Álbumes Disponibles {{cantidad_album}}</h1>  
                     {% else %}
-                    <h1 class="btn btn-danger">Cantidad Total De Álbumes {{cantidad_album}}</h1>  
+                    <h1 class="btn btn-danger">Cantidad Total De Álbumes Disponibles {{cantidad_album}}</h1>  
                     
 
                     {% endif %}

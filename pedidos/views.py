@@ -97,6 +97,20 @@ class PedidoList(ListView):
 ###########################################################
 
 
+
+        
+        albumTotal= Album.objects.all()
+        context['album_total']=albumTotal
+        salbum = 0
+        for i in cantalbum:
+            salbum = salbum+int(i.cantidad)
+        context['album_total']=salbum 
+
+
+
+
+
+
         return context
     
 

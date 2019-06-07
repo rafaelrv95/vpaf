@@ -37,7 +37,7 @@ $('#export').click(function() {
     var blob = new Blob(["\ufeff", CSVString]);
     var url = URL.createObjectURL(blob);
     downloadLink.href = url;
-    downloadLink.download = "data.csv";
+    downloadLink.download = "ValorartePedidos.csv";
   
     /*
      * Actually download CSV
