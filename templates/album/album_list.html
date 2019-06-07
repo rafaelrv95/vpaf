@@ -14,8 +14,12 @@
           <button href="{% url 'album:album_listar' %}" class="btn btn-primary">
             Listar Album
           </button>
+          {% if user.is_staff %}
           <a href="{% url 'usuarios:registrar' %}" class="btn list-group-item list-group-item-action bg-light">Crear Usuario</a>
         
+            
+          {% endif %}
+            
         
         </div>
       </div>
