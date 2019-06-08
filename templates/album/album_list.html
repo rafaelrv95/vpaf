@@ -58,7 +58,7 @@
         <div class="container-table100">
           <div class="wrap-table100">
             <div class="table100">
-              <table>
+              <table class="dataT" id="pedidos">
                 <thead>
                   <tr class="table100-head">
                         <th class="column1">id</th>
@@ -100,38 +100,7 @@
                             <td class="column2" >{{en_album|get_item:albums.fundacion }}</td>
                               
                             {% endif %}
-                                
-                              
-
-                            
-                                
-
-                              
-                                                              
-                            
-                              
-                            
-                              
-                            
-                           
-                              
-                        
-                              
-                              
-                            
-                              
-                            
-                              
-                            
-                              
-                           
-                              
-                            
-                              
-                            
-                              
-                                
-                            
+              
                             
                             <td class="column6">
                                 <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
@@ -151,6 +120,13 @@
                     
                 </tbody>
               </table>
+
+
+              <iframe id="txtArea1" style="display:none"></iframe>
+              <br>
+              <button  class="btn btn-warning" id="exp">Descargar CSV de la tabla</button>
+
+
             </div>
           </div>
         </div>
