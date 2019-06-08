@@ -62,6 +62,7 @@
                         <th class="column3">Responsable</th>
                         <th class="column3">Destino</th>
                         <th class="column3">Cantidad</th>
+                        <th class="column3">Álbum</th>
                         <th class="column3">Fecha</th>
                         <th class="column3">Contacto</th>
                         <th class="column3">Observaciones</th>
@@ -88,6 +89,8 @@
                           <td class="column2" bgcolor="#93FB72">{{pedido.responsable}}</td>
                           <td class="column2" bgcolor="#93FB72">{{pedido.destino}}</td>
                           <td class="column2" bgcolor="#93FB72">{{pedido.cantidad}}</td>
+                          <td class="column2" bgcolor="#93FB72">{{pedido.album_p}}</td>
+                          
                           <td class="column2" bgcolor="#93FB72">{{pedido.fecha}}</td>
                           <td class="column2" bgcolor="#93FB72">{{pedido.contacto}}</td>
                           <td class="column2" bgcolor="#93FB72">{{pedido.observaciones}}</td>
@@ -103,6 +106,8 @@
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.responsable}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.destino}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.cantidad}}</td>
+                          <td class="column2" bgcolor="#D3EC2E">{{pedido.album_p}}</td>
+                          
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.fecha}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.contacto}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.observaciones}}</td>
@@ -117,6 +122,8 @@
                           <td class="column2" >{{pedido.responsable}}</td>
                           <td class="column2" >{{pedido.destino}}</td>
                           <td class="column2" >{{pedido.cantidad}}</td>
+                          <td class="column2" >{{pedido.album_p}}</td>
+                         
                           <td class="column2" >{{pedido.fecha}}</td>
                           <td class="column2" >{{pedido.contacto}}</td>
                           <td class="column2" >{{pedido.observaciones}}</td>
@@ -155,8 +162,10 @@
                           <td class="column2" ></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL EN PEDIDOS</font></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{total_tabla}}</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL DISPONIBLE</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{cantidad_album}}</font></td>
                           <td class="column2" ></td>
-                          <td class="column2" ></td>
+                          
                           <td class="column2" ></td>
                           <td class="column2" ></td>
 
@@ -174,24 +183,13 @@
                           <td class="column2" ></td>
                           <td class="column2" ></td>
                           <td class="column2" ></td>
-
+                          <td class="column2" ></td>
+                         
 
                         </tr>
                           
 
-                        <tr>
-
-                          <td class="column1"  ></td>
-                          <td class="column2" ></td>
-                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL DISPONIBLE</font></td>
-                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{cantidad_album}}</font></td>
-                          <td class="column2" ></td>
-                          <td class="column2" ></td>
-                          <td class="column2" ></td>
-                          <td class="column2" ></td>
-
-
-                        </tr>
+                        
                           
 
                         

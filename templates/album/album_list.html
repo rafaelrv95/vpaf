@@ -63,24 +63,83 @@
                   <tr class="table100-head">
                         <th class="column1">id</th>
                     <th class="column2">Fundacion</th>
-                    <th class="column3">Cantidad</th>
+                    <th class="column2">Cantidad</th>
+                    <th class="column2">Entregados</th>
                     <th class="column6">Acciones</th>
                   </tr>
                 </thead>
                 <tbody class="falbum">
                         {% if object_list %}
             
-                        {% for albums in object_list %}
+                        {% for albums in object_list  %}
                         <tr>
                             <td class="column1">{{albums.id}}</td>
                             <td class="column2">{{albums.fundacion}}</td>
-                            <td class="column3">{{albums.cantidad}}</td>
+                            <td class="column2">{{albums.cantidad}}</td>
+                            
+                            
+                            
+                            
+                            
+
+                          
+                            
+                            
+                              
+                              
+                              
+                              
+                            
+                            {% if albums.cantidad < en_album|get_item:albums.fundacion  %}
+                            <td class="column2" bgcolor="#F52C3B">{{en_album|get_item:albums.fundacion }}</td>
+                            
+                            {% elif albums.cantidad == en_album|get_item:albums.fundacion  %}
+                            <td class="column2" bgcolor="#D3EC2E">{{en_album|get_item:albums.fundacion }}</td>
+                            
+                            {% else %} 
+                            <td class="column2" >{{en_album|get_item:albums.fundacion }}</td>
+                              
+                            {% endif %}
+                                
+                              
+
+                            
+                                
+
+                              
+                                                              
+                            
+                              
+                            
+                              
+                            
+                           
+                              
+                        
+                              
+                              
+                            
+                              
+                            
+                              
+                            
+                              
+                           
+                              
+                            
+                              
+                            
+                              
+                                
+                            
+                            
                             <td class="column6">
                                 <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
                                 <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
                          
                             </td> 
                         </tr>
+                        
                         {% endfor %}
                         {% else %}
                         <h1>no existen registros</h1>

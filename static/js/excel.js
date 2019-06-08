@@ -1,6 +1,6 @@
 $nuevatabla = $('.dataTable').clone().addClass('dataT').insertAfter('.dataTable').hide();
-$('.dataT').find("td:nth-child(9)").remove();
-$('.dataT').find("th:nth-child(9)").remove();
+$('.dataT').find("td:nth-child(10)").remove();
+$('.dataT').find("th:nth-child(10)").remove();
 
 $('#export').click(function() {
     var titles = [];

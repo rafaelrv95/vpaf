@@ -106,19 +106,49 @@ class PedidoList(ListView):
             salbum = salbum+int(i.cantidad)
         context['album_total']=salbum 
 
+##################### combobox ############
+
+
+        
+        listarAlbum= Album.objects.all()
+        context['listar_album']=listarAlbum
+        
+
+
+####################
 
 
 
 
 
-        return context
-    
+        return context    
 
 class PedidoCreate(CreateView):
     model = Pedido
     form_class = PedidoForm
     template_name = 'pedidos/pedidos_form.html'
     success_url = reverse_lazy('pedidos:pedidos_listar')
+
+
+
+
+    def get_context_data(self, **kwargs):
+        context =super(PedidoCreate, self).get_context_data(**kwargs)
+    
+
+    ##################### combobox ############
+
+
+        
+        listarAlbum= Album.objects.all()
+        context['listar_album']=listarAlbum
+
+        return context
+        
+
+
+####################
+
 
 class PedidoDelete(DeleteView):
     model = Pedido
@@ -130,3 +160,16 @@ class PedidoUpdate(UpdateView):
     form_class = PedidoForm
     template_name = 'pedidos/pedidos_form.html'
     success_url = reverse_lazy('pedidos:pedidos_listar')
+
+    def get_context_data(self, **kwargs):
+        context =super(PedidoUpdate, self).get_context_data(**kwargs)
+    
+
+    ##################### combobox ############
+
+
+        
+        listarAlbum= Album.objects.all()
+        context['listar_album']=listarAlbum
+
+        return context

@@ -9,8 +9,10 @@ from django.core.urlresolvers import reverse_lazy
 
 from album.forms import AlbumForm
 from album.models import Album
-# Create your views here.
 
+from pedidos.models import Pedido
+# Create your views here.
+from django.template.defaulttags import register
 def index(request):
     return render(request, 'album/index.html')
 
@@ -51,6 +53,42 @@ def album_delete(request, id_album):
 class AlbumList(ListView):
     model = Album
     template_name = 'album/album_list.html'
+    
+
+    def get_context_data(self, **kwargs):
+        context =super(AlbumList, self).get_context_data(**kwargs)
+    
+        @register.filter
+        def get_item(dictionary, key):
+            return dictionary.get(key)
+
+
+    ##################### entregados ############
+
+        entregados = Pedido.objects.all()
+        context['cantidad_enpedido']= entregados
+        fundacion = [] # nombre de la fundacion
+        entrega = [] # entregados de cada fundacion -- depende del estado --
+    
+        for ent in entregados:
+            if ent.estado == "entregado":
+                fundacion.append(ent.album_p)
+                entrega.append(ent.cantidad)
+
+        dicc_entregados = list(zip(fundacion, entrega)) # los duplicados se agrpan y su cantidad se suma
+        resultado = {}
+
+        for k, v in dicc_entregados:
+            total = resultado.get(k, 0) + v
+            resultado[k] = total
+        context['en_album']= resultado
+
+        return context
+        
+
+
+####################
+
 
 class AlbumCreate(CreateView):
     model = Album

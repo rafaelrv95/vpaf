@@ -33,6 +33,36 @@
                     <input placeholder="" type="number" tabindex="1"  value="{{pedido.cantidad}}" required autofocus name="cantidad">
               </fieldset>
 
+
+              <legend style="font-size:17px"> Album de: </legend>
+                
+              <select class="browser-default custom-select" required autofocus name="album_p">
+                   
+                  
+                  
+                    
+                <option value="{{pedido.album_p}}">{{pedido.album_p}}</option>
+                  
+                    {% for album_list  in listar_album %}
+                  <option value="{{album_list.fundacion}}">{{album_list.fundacion}}</option>
+                  
+                  {% endfor %}
+                        
+                  
+                      
+                    
+                      
+                  
+                  
+                  
+
+                 </select>
+              
+
+
+
+
+
               <fieldset>
                         <legend style="font-size:17px"> Fecha </legend>
                     
