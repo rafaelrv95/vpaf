@@ -55,7 +55,7 @@
         <div class="container-table100">
           <div class="wrap-table100">
             <div class="table100">
-              <table class="dataTable" id="pedidos">
+              <table class="pedido" id="pedido">
                 <thead>
                   <tr class="table100-head">
                         <th class="column1">id</th>
@@ -222,7 +222,7 @@
 
               <iframe id="txtArea1" style="display:none"></iframe>
               <br>
-              <button  class="btn btn-warning" id="export">Descargar CSV de la tabla</button>
+            <input type="button" onclick="tableToExcel('pedido', 'W3C Example Table')" value="Export to Excel">
 
             </div>
           </div>
