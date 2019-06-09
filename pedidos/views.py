@@ -155,6 +155,30 @@ class PedidoDelete(DeleteView):
     template_name = 'pedidos/pedidos_delete.html'
     success_url = reverse_lazy('pedidos:pedidos_listar')
 
+
+###### actualizar la cantidad de pedidos al eliminar un con estado entregado
+
+    def get_context_data(self, **kwargs):
+        context =super(PedidoDelete, self).get_context_data(**kwargs)
+    
+
+    
+
+
+        
+        
+        funda = Pedido.objects.get(pk=self.kwargs.get('pk')).album_p
+        pedido_cant = Pedido.objects.get(pk=self.kwargs.get('pk')).cantidad
+        pedido_estado = Pedido.objects.get(pk=self.kwargs.get('pk')).estado
+        cant_album = Album.objects.get(fundacion = funda).cantidad
+        if pedido_estado == "entregado":
+            Album.objects.filter(fundacion = funda).update(cantidad = cant_album-pedido_cant)
+
+
+
+        return context
+        
+
 class PedidoUpdate(UpdateView):
     model = Pedido
     form_class = PedidoForm
