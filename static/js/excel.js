@@ -1,6 +1,6 @@
-$nuevatabla = $('.dataP').clone().addClass('data').insertAfter('.dataP').hide();
-$('.data').find("td:nth-child(10)").remove();
-$('.data').find("th:nth-child(10)").remove();
+$nuevatabla = $('.dataP').clone().addClass('dataN').insertAfter('.dataP').hide();
+$('.dataN').find("td:nth-child(10)").remove();
+$('.dataN').find("th:nth-child(10)").remove();
 
 $('#expt').click(function() {
     var titles = [];
@@ -11,7 +11,7 @@ $('#expt').click(function() {
      * The count of headers will be CSV string separator
      */
 
-    $('.data th').each(function() {
+    $('.dataN th').each(function() {
 
 
       titles.push($(this).text());
@@ -20,7 +20,7 @@ $('#expt').click(function() {
     /*
      * Get the actual data, this will contain all the data, in 1 array
      */
-    $('.data td').each(function() {
+    $('.dataN td').each(function() {
       data.push($(this).text());
     });
 
