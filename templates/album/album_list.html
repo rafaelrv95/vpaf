@@ -55,82 +55,113 @@
 
 
 <div class="limiter">
-        <div class="container-table100">
-          <div class="wrap-table100">
-            <div class="table100">
-              <table class="pedidos" id="pedidos">
-                <thead>
-                  <tr class="table100-head">
-                        <th class="column1">id</th>
-                    <th class="column2">Fundacion</th>
-                    <th class="column2">Cantidad</th>
-                    <th class="column2">Entregados</th>
-                    <th class="column6">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody class="falbum">
-                        {% if object_list %}
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table class="dataT" id="pedido">
+          <thead>
+            <tr class="table100-head">
+                  <th class="column1">id</th>
+                  <th class="column3">Fundación</th>
+                  <th class="column3">Cantidad</th>
+                  <th class="column3">Entregados</th>
+                  <th class="column3">Acciones</th>
+                  
+                  
+                
+          </thead>
+          <tbody class="fpedido">
+                  {% if object_list %}
+      
+                  {% for albums in object_list %}
+                  <tr>
 
-                        {% for albums in object_list  %}
-                        <tr>
-                            <td class="column1">{{albums.id}}</td>
-                            <td class="column2">{{albums.fundacion}}</td>
-                            <td class="column2">{{albums.cantidad}}</td>
-
-
-
-
-
-
+                    
+                    <td class="column1">{{albums.id}}</td>
+                    <td class="column2">{{albums.fundacion}}</td>
+                    <td class="column2">{{albums.cantidad}}</td>
 
 
 
+                    
+                    {% if en_album|get_item:albums.fundacion > albums.cantidad %}
+                    <td class="column2" bgcolor="#F52C3B">{{en_album|get_item:albums.fundacion }}</td>
+                    <td class="column6">
+                     <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
+                     <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
 
+                   </td>
 
+                   {% elif en_album|get_item:albums.fundacion == albums.cantidad %}
 
+                   <td class="column2" bgcolor="#D3EC2E">{{en_album|get_item:albums.fundacion }}</td>
+                   <td class="column6">
+                    <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
+                    <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
 
+                  </td>
 
-                            {% if albums.cantidad < en_album|get_item:albums.fundacion  %}
-                            <td class="column2" bgcolor="#F52C3B">{{en_album|get_item:albums.fundacion }}</td>
+                  {% else %}
 
-                            {% elif albums.cantidad == en_album|get_item:albums.fundacion  %}
-                            <td class="column2" bgcolor="#D3EC2E">{{en_album|get_item:albums.fundacion }}</td>
+                  <td class="column2" >{{en_album|get_item:albums.fundacion }}</td>
+                  <td class="column6">
+                   <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
+                   <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
 
-                            {% else %}
-                            <td class="column2" >{{en_album|get_item:albums.fundacion }}</td>
+                 </td>
 
-                            {% endif %}
-
-
-                            <td class="column6">
-                                <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
-                                <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>
-
-                            </td>
-                        </tr>
-
-                        {% endfor %}
-                        {% else %}
-                        <h1>no existen registros</h1>
-
+            
+                      
                     {% endif %}
+                      
 
 
+              
+                    
+                    
+                   
+          
 
+                      
+                      
+                  </tr>
+                  {% endfor %}
 
-                </tbody>
-              </table>
+                    
 
+                  
+                    
 
-              <iframe id="txtArea1" style="display:none"></iframe>
-              <br>
-            <input type="button" onclick="tableToExcel('pedidos', 'W3C Example Table')" value="Export to Excel">
+                  
+                  {% else %}
+                  <h1>no existen registros</h1>
+                      
+              {% endif %}
+              
+              
+             
+                
+              
+                
+              
+             
 
-            </div>
-          </div>
-        </div>
+              
+          </tbody>
+
+          
+          
+
+        </table>
+
+        <iframe id="txtArea1" style="display:none"></iframe>
+        <br>
+        <button  class="btn btn-warning" id="exp">Descargar CSV de la tabla</button>
+
       </div>
-
+    </div>
+  </div>
+</div>
 
 
 {% endblock content %}
