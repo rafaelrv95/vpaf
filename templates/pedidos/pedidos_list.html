@@ -55,7 +55,7 @@
         <div class="container-table100">
           <div class="wrap-table100">
             <div class="table100">
-              <table class="pedido" id="pedido">
+              <table class="dataP" id="pedido">
                 <thead>
                   <tr class="table100-head">
                         <th class="column1">id</th>
@@ -162,9 +162,9 @@
                           <td class="column2" ></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL EN PEDIDOS</font></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{total_tabla}}</font></td>
+                          <td class="column2" ></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL DISPONIBLE</font></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{cantidad_album}}</font></td>
-                          <td class="column2" ></td>
                           
                           <td class="column2" ></td>
                           <td class="column2" ></td>
@@ -222,7 +222,7 @@
 
               <iframe id="txtArea1" style="display:none"></iframe>
               <br>
-            <input type="button" onclick="tableToExcel('pedido', 'W3C Example Table')" value="Export to Excel">
+              <button  class="btn btn-warning" id="expt">Descargar CSV de la tabla</button>
 
             </div>
           </div>
