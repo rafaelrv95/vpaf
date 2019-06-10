@@ -75,9 +75,9 @@ class AlbumList(ListView):
         entrega = [] # entregados de cada fundacion -- depende del estado --
     
         for ent in entregados:
-            if ent.estado == "entregado":
-                fundacion.append(ent.album_p)
-                entrega.append(ent.cantidad)
+            #if ent.estado == "entregado":
+            fundacion.append(ent.album_p)
+            entrega.append(ent.cantidad)
 
         dicc_entregados = list(zip(fundacion, entrega)) # los duplicados se agrpan y su cantidad se suma
         resultado = {}

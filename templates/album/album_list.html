@@ -64,7 +64,7 @@
                   <th class="column1">id</th>
                   <th class="column3">Fundación</th>
                   <th class="column3">Cantidad</th>
-                  <th class="column3">Entregados</th>
+                  <th class="column3">Para entregar</th>
                   <th class="column3">Acciones</th>
                   
                   
@@ -85,7 +85,7 @@
 
                     
                     {% if en_album|get_item:albums.fundacion > albums.cantidad %}
-                    <td class="column2" bgcolor="#F52C3B">{{en_album|get_item:albums.fundacion }} faltan: {{en_album|get_item:albums.fundacion|subtract:albums.cantidad}}  </td>
+                    <td class="column2" bgcolor="#F52C3B">{{en_album|get_item:albums.fundacion }}  faltan: {{en_album|get_item:albums.fundacion|subtract:albums.cantidad}} </td>
                     <td class="column6">
                      <a class="btn btn-primary" href="{%url 'album:album_editar' albums.id%}">Editar</a>
                      <a class="btn btn-danger" href="{%url 'album:album_eliminar' albums.id%}">Eliminar</a>

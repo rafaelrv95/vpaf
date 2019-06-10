@@ -118,8 +118,13 @@
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.responsable}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.destino}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.cantidad}}</td>
-                          <td class="column2" bgcolor="#D3EC2E">{{pedido.album_p}}</td>
-                          
+                          {% if faltan_album|index:forloop.counter0 < 0 %}
+                          <td class="column2" bgcolor="#F52C3B">{{pedido.album_p}} faltan: {{faltan_album|index:forloop.counter0}} </td>
+                         {% else %}
+                         <td class="column2" bgcolor="#93FB72">{{pedido.album_p}} </td>
+                         
+                          {% endif %}
+                         
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.fecha}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.contacto}}</td>
                           <td class="column2" bgcolor="#D3EC2E">{{pedido.observaciones}}</td>
@@ -134,7 +139,12 @@
                           <td class="column2" >{{pedido.responsable}}</td>
                           <td class="column2" >{{pedido.destino}}</td>
                           <td class="column2" >{{pedido.cantidad}}</td>
-                          <td class="column2" >{{pedido.album_p}}</td>
+                          {% if faltan_album|index:forloop.counter0 < 0 %}
+                          <td class="column2" bgcolor="#F52C3B">{{pedido.album_p}} faltan: {{faltan_album|index:forloop.counter0}} </td>
+                         {% else %}
+                         <td class="column2" >{{pedido.album_p}} </td>
+                         
+                          {% endif %}
                          
                           <td class="column2" >{{pedido.fecha}}</td>
                           <td class="column2" >{{pedido.contacto}}</td>
