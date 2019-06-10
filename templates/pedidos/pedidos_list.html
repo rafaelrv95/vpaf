@@ -74,8 +74,10 @@
                 </thead>
                 <tbody class="fpedido">
                         {% if object_list %}
-            
+                        
                         {% for pedido in object_list %}
+                        
+
                         <tr>
 
                           
@@ -90,8 +92,16 @@
                           <td class="column2" bgcolor="#93FB72">{{pedido.destino}}</td>
                           <td class="column2" bgcolor="#93FB72">{{pedido.cantidad}}</td>
                           
-                          <td class="column2" bgcolor="#93FB72">{{pedido.album_p}}</td>
+
+                          
+                          {% if faltan_album|index:forloop.counter0 < 0 %}
+                          <td class="column2" bgcolor="#F52C3B">{{pedido.album_p}} faltan: {{faltan_album|index:forloop.counter0}} </td>
+                         {% else %}
+                         <td class="column2" bgcolor="#93FB72">{{pedido.album_p}} </td>
                          
+                          {% endif %}
+                            
+                          
                           
                           <td class="column2" bgcolor="#93FB72">{{pedido.fecha}}</td>
                           <td class="column2" bgcolor="#93FB72">{{pedido.contacto}}</td>
@@ -165,7 +175,7 @@
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL EN PEDIDOS</font></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{total_tabla}}</font></td>
                           <td class="column2" ></td>
-                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL DISPONIBLE</font></td>
+                          <td class="column2" bgcolor="#0AE2F7"><font color="Black">TOTAL ÁLBUMES DISPONIBLES</font></td>
                           <td class="column2" bgcolor="#0AE2F7"><font color="Black">{{cantidad_album}}</font></td>
                           
                           <td class="column2" ></td>

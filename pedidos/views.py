@@ -61,6 +61,28 @@ class PedidoList(ListView):
     def get_context_data(self, **kwargs):
         context =super(PedidoList, self).get_context_data(**kwargs)
         cantidad = Pedido.objects.all()
+
+
+        @register.filter
+        def get_item(dictionary, key):
+            return dictionary.get(key)
+        
+        @register.filter
+        def subtract(value, arg):
+            return value - arg
+        
+        @register.filter
+        def update_variable(dictionary, key):
+            dictionary[key]=data
+            return dictionary.get(key)
+        @register.filter
+        def index(List, i):
+            return List[int(i)]
+        
+        @register.filter
+        def zip_lists(a, b):
+            return zip(a, b)
+        
         
         ###### total en estado de entregado#############
         context['cantidad_total']= cantidad
@@ -109,6 +131,40 @@ class PedidoList(ListView):
             salbum = salbum+int(i.cantidad)
         context['album_total']=salbum 
 
+
+        entregados = Album.objects.all()
+        context['cantidad_enpedido']= entregados
+        fundacion = [] # nombre de la fundacion
+        entrega = [] # entregados de cada fundacion -- depende del estado --
+    
+        for ent in entregados:
+            fundacion.append(ent.fundacion)
+            entrega.append(ent.cantidad) 
+
+        dicc_entregados = list(zip(fundacion, entrega)) # los duplicados se agrpan y su cantidad se suma
+        resultado = {}
+
+        for k, v in dicc_entregados:
+            total = resultado.get(k, 0) + v
+            resultado[k] = total
+        context['desc_album']= resultado
+
+        pedido_descontar = Pedido.objects.all()
+        pedido_album = []
+        pedido_cantidad = []
+
+        for pac in pedido_descontar:
+            pedido_album.append(pac.album_p)
+            pedido_cantidad.append(pac.cantidad)
+        
+        for i in range(len(pedido_album)):
+            resultado[pedido_album[i]] = resultado[pedido_album[i]] - pedido_cantidad[i]
+            if resultado[pedido_album[i]] < 0:
+                pedido_cantidad[i]=resultado[pedido_album[i]]
+                resultado[pedido_album[i]]=0
+        context['faltan_album']= pedido_cantidad
+
+        
 
 
 
