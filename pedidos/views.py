@@ -10,6 +10,9 @@ from django.core.urlresolvers import reverse_lazy
 from pedidos.forms import PedidoForm
 from pedidos.models import Pedido
 from album.models import Album
+
+from django.template.defaulttags import register
+
 # Create your views here.
 
 def index(request):
@@ -59,7 +62,7 @@ class PedidoList(ListView):
         context =super(PedidoList, self).get_context_data(**kwargs)
         cantidad = Pedido.objects.all()
         
-        ###### total #############
+        ###### total en estado de entregado#############
         context['cantidad_total']= cantidad
 
         suma=0
@@ -70,7 +73,7 @@ class PedidoList(ListView):
   ###################### fin total#################
 
 
-  ############# album ##################
+  ############# total menos la cantidad de entregados ##################
         
         cantalbum= Album.objects.all()
         context['cantidad_album']=cantalbum
@@ -105,17 +108,6 @@ class PedidoList(ListView):
         for i in cantalbum:
             salbum = salbum+int(i.cantidad)
         context['album_total']=salbum 
-
-##################### combobox ############
-
-
-        
-        listarAlbum= Album.objects.all()
-        context['listar_album']=listarAlbum
-        
-
-
-####################
 
 
 
