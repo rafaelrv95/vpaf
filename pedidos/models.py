@@ -10,7 +10,7 @@ class Pedido(models.Model):
     responsable = models.CharField(max_length=150)
     destino = models.CharField(max_length=150)
     cantidad = models.IntegerField()
-    album_p = models.CharField(max_length=150)
+    album_p = models.CharField(max_length=200)
     fecha = models.DateField()
     contacto = models.CharField(max_length=150)
     estado = models.CharField(max_length=250)
