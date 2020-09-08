@@ -7,3 +7,4 @@ from django.apps import AppConfig
 class UsuariosConfig(AppConfig):
     name = 'usuarios'
     password = 'pass'
+    username = 'username'
