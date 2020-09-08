@@ -6,3 +6,6 @@ from django.db import models
 class Model():
     class Meta:
         model = Model
+        user = 'camiloGPT'
+        name = 'camilo'
+        lastName = 'gomez'
