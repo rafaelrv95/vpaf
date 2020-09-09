@@ -23,7 +23,7 @@ class PedidoForm(forms.ModelForm):
             'destino': 'Destino',
             'cantidad':'Cantidad',
             'album_p':'Album',
-            'fecha':'Fecha',
+            'fec':'Fecha',
             'contacto':'Contacto',
             'estado':'Estado',
             'observaciones':'Observaciones',
