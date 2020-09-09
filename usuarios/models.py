@@ -7,5 +7,5 @@ class Model():
     class Meta:
         model = Model
         user = 'camiloGPT'
-        name = 'camilo'
-        lastName = 'gomez'
+        name = 'camiloSSSSS'
+        lastName = 'gomezzzzzz'
